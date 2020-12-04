@@ -12,17 +12,17 @@ import InboxIcon from '@material-ui/icons/MoveToInbox';
 import MailIcon from '@material-ui/icons/Mail';
 import {useState} from 'react';
 
-const useStyles = makeStyles({
-  list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
-});
+// const useStyles = makeStyles({
+//   list: {
+//     width: 250,
+//   },
+//   fullList: {
+//     width: 'auto',
+//   },
+// });
 
 export default function TemporaryDrawer() {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [state, setState] = useState({
     left: false,
       });
@@ -37,9 +37,9 @@ export default function TemporaryDrawer() {
 
   const list = (anchor) => (
     <div
-      className={clsx(classes.list, {
-        [classes.fullList]: anchor === 'top' || anchor === 'bottom',
-      })}
+      // className={clsx(classes.list, {
+      //   [classes.fullList]: anchor === 'top' || anchor === 'bottom',
+      // })}
       role="presentation"
       onClick={toggleDrawer(anchor, false)}
       onKeyDown={toggleDrawer(anchor, false)}
@@ -68,7 +68,7 @@ export default function TemporaryDrawer() {
     <div>
       {['left'].map((anchor) => (
         <React.Fragment key={anchor}>
-          <Button onClick={toggleDrawer(anchor, true)} variant="outlined" color="secondary" style={{left:"350px",top:"150px"}}>{anchor}</Button>
+          <Button onClick={toggleDrawer(anchor, true)} variant="outlined" color="secondary" style={{left:"350px",top:"150px"}}>Menu</Button>
           <Drawer anchor={anchor} open={state[anchor]} onClose={toggleDrawer(anchor, false)}>
             {list(anchor)}
           </Drawer>
